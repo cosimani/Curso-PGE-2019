@@ -2,16 +2,16 @@
 
 .. _rcs_subversion:
 
-Clase 02 - PGE 2018
+Clase 02 - PGE 2019
 ===================
-(Fecha: 16 de agosto)
+(Fecha: 15 de agosto)
 
 Herencia
 ========
 
 .. code-block::
 
-    template <class T> class Lista : public Listado<T>  {
+    template< class T > class Lista : public Listado< T >  {
  
         //////////
 
@@ -25,12 +25,12 @@ Herencia
 	#include <QDebug>
 	#include <typeinfo>
 
-	class Real {
+	class Real  {
 	private:
     	    int colores;
 
 	public:
-    	    Real(int colores) : colores(colores)  {  }
+    	    Real( int colores ) : colores( colores )  {  }
      	    int getDato()  {  return colores;  }
 	};
 
@@ -40,33 +40,33 @@ Herencia
     	    int bits;
 
 	public:
-    	    Virtual(int bits) : bits(bits)  {  }
+    	    Virtual( int bits ) : bits( bits )  {  }
     	    int getDato()  {  return bits;  }
 	};
 
-	template <class T> class Mundo : public T  {
+	template< class T > class Mundo : public T  {
 	private:
     	    QString nombre;
 
 	public:
-    	    Mundo(QString nombre, int dato) : T(dato), nombre(nombre)  {  }
+    	    Mundo( QString nombre, int dato ) : T( dato ), nombre( nombre )  {  }
 
     	    QString toString()  {
         	QString descripcion = "El mundo " + nombre + " es de ";
-        	descripcion.append(QString::number(T::getDato()));
+        	descripcion.append( QString::number( T::getDato() ) );
 
-        	if (typeid(T) == typeid(Real))
-            	    descripcion.append(" colores.");
-        	if (typeid(T) == typeid(Virtual))
-            	    descripcion.append(" bits.");
+        	if ( typeid( T ) == typeid( Real ) )
+            	    descripcion.append( " colores." );
+        	if ( typeid( T ) == typeid( Virtual ) )
+            	    descripcion.append( " bits." );
 
         	return descripcion;
     	    }
     	};
 
-	int main(int, char **)  {
-    	    Mundo<Real> mundo1("Tierra", 10000);
-    	    Mundo<Virtual>* mundo2 = new Mundo<Virtual>("StarCraft", 64);
+	int main( int, char ** )  {
+    	    Mundo< Real > mundo1( "Tierra", 10000 );
+    	    Mundo< Virtual > * mundo2 = new Mundo< Virtual >( "StarCraft", 64 );
 
     	    qDebug() << mundo1.toString();
     	    qDebug() << mundo2->toString();
@@ -92,13 +92,13 @@ Ejercicio 2:
 
 .. code-block::
 
-	template <class T> class Listado  {
+	template< class T > class Listado  {
 	public:
-		Listado(int n=10);
-		bool add(T nuevo);
-		T get(int i) const;
+		Listado( int n = 10 );
+		bool add( T nuevo );
+		T get( int i ) const;
 		int length() const;
-		Listado<T> operator+(const Listado<T> otro);
+		Listado< T > operator+( const Listado< T > otro );
 
 	private:
 		int cantidad;
@@ -107,13 +107,13 @@ Ejercicio 2:
 	};
 
 
-	template <class T> Listado<T>::Listado(int n) : cantidad(n), libre(0), v(new T[n])  {  
+	template< class T > Listado< T >::Listado( int n ) : cantidad( n ), libre( 0 ), v( new T[ n ] )  {  
 
 	}
 
-	template <class T> bool Listado<T>::add(T nuevo)  {
-		if (libre < cantidad)  {
-			v[libre] = nuevo;
+	template< class T > bool Listado< T >::add( T nuevo )  {
+		if ( libre < cantidad )  {
+			v[ libre ] = nuevo;
 			libre++;
 			return true;
 		}
@@ -121,25 +121,25 @@ Ejercicio 2:
 	}
 
 
-	template <class T> T Listado<T>::get(int i) const  {  return v[i];  }
+	template< class T > T Listado< T >::get( int i ) const  {  return v[ i ];  }
 
-	template <class T> int Listado<T>::length() const  {  return libre;  }
+	template< class T > int Listado< T >::length() const  {  return libre;  }
 
-	template <class T> Listado<T> Listado<T>::operator+(const Listado<T> otro)  {
-		T vAux[this->length() + otro.length()];
+	template< class T > Listado< T > Listado< T >::operator+( const Listado< T > otro )  {
+		T vAux[ this->length() + otro.length() ];
 
 		int contador = 0;
 
-		for ( ; contador<this->length() ; contador++)
-			vAux[contador] = this->get(contador);
+		for ( ; contador < this->length() ; contador++ )
+			vAux[ contador ] = this->get( contador );
 
-		for (int i=0 ; contador < (this->length() + otro.length()) ; contador++, i++)
-			vAux[contador] = otro.get(i);
+		for ( int i = 0 ; contador < ( this->length() + otro.length() ) ; contador++, i++ )
+			vAux[ contador ] = otro.get( i );
 
-		Listado<T> res(this->length() + otro.length());
+		Listado< T > res( this->length() + otro.length() );
 
-		for (int j=0 ; j < contador ; j++)
-			res.add(vAux[j]);
+		for ( int j = 0 ; j < contador ; j++ )
+			res.add( vAux[ j ] );
 
 		return res;
 	}
@@ -148,7 +148,7 @@ Ejercicio 2:
 Ejercicio 3:
 ============
 
-- Sobrecargar el operador ++ para que duplique la cantidad máxima de elementos y también duplique los valores que ya existían.
+- Sobrecargar el ``operador++`` para que duplique la cantidad máxima de elementos y también duplique los valores que ya existían.
 
 
 
