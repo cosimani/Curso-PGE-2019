@@ -2,38 +2,35 @@
 
 .. _rcs_subversion:
 
-Clase 01 - PGE 2018
+Clase 01 - PGE 2019
 ===================
 (Fecha: 13 de agosto)
 
 :Autor: César Osimani
 :Correo: cosimani@ubp.edu.ar
-:Fecha: 13 de agosto de 2018
+:Fecha: 13 de agosto de 2019
 :Regularidad: 
-	- 2 parciales 
-	
-	- Parcialitos y cuestionarios (se promedia para 3er nota)
-
-	- Entrega de ejercicios que están en las clases (se promedia para 3er nota)
-:Opción B: 
-	- Desarrollo en Qt para Android 
-	
-	- Proponer un desarrollo que les interese
-	
-	- El proyecto reemplaza los dos parciales (no los parcialitos y cuestionarios). 
-
-	- Cumplir aproximadamente 8 horas semanales en investigación (no rinde parciales)
-	
-	- Si proponen proyecto, se entragan los avances en fecha de parciales.
-	
-	- Es individual o grupo de dos.
-:Otras opciones para obtener puntaje extra: 
-	- Clonar este repositorio, mejorarlo, ampliarlo, colocar los ejercicios resueltos, etc. 
-	
-	- Crear un instructivo de Git, con ejemplos claros, para usar desde QtCreator.
+	- 2 parciales 	
+	- Parcialitos, ejercicios y cuestionarios (se promedian para 3er nota)
+	- Los ejericios son algunos de los que están en las clases
+	- Con los ejercicios correctamente resueltos se alcanza la nota 8, para llegar al 10 tiene que ser sobresaliente, agregando características nuevas y demostrando alto dominio de la solución.
+:Opcional (proponer un proyecto): 
+	- Proponer el desarrollo de un proyecto que les interese.
+	- Es individual.
+	- El proyecto reemplaza los dos parciales (no los parcialitos, ejercicios ni cuestionarios). 
+	- Para las notas de los parciales se entregan los avances del proyecto.
 :Opciones para proyectos: 
 	- Interfaz gráfica creada a partir de un XML (o JSON). 
-	
+	- Desarrollo en Qt para Android 
+	- Desarrollos utilizando:
+	    - API de Facebook
+	    - API de MercadoLibre
+	    - API de Spotify			
+	    - API de Instagram			
+	    - Qt en Android			
+	    - Qt Google Maps			
+	    - OpenCV			
+	    - OpenGL			
 	- App que haga Croma `https://es.wikipedia.org/wiki/Croma <https://es.wikipedia.org/wiki/Croma>`_
 :Temas principales:
 	- Programación genérica y orientada a eventos
