@@ -71,7 +71,7 @@ Desventajas:
 
 *Desventajas*:
 	- El hilo de ejecución se pierde de vista.
-	- Es un tanto abstracto, se maneja generalmente a alto nivel.
+	- Es un tanto abstracto (abstracto se refiere al ¿qué hace? y no tanto en ¿cómo lo hace?, como si fuera una caja negra), se maneja generalmente a alto nivel. 
 	- Complicado para manejar los eventos a bajo nivel.
 	
 Plantillas
@@ -81,11 +81,11 @@ Plantillas
 - Facilita el trabajo de realizar copias idénticas de la estructura.
 
 - Utilización de tipos como parámetros
-- Teniendo la función ordena(v). Dependerá del tipo de v para generar la función.
+- Teniendo la función ``ordena( v )``. Dependerá del tipo de v para generar la función.
 
 .. code-block::
 
-    template<class T> void ordena(T v[])  {
+    template< class T > void ordena( T v[] )  {
     
     }
 
@@ -105,22 +105,22 @@ Clase genérica Listado
 
 .. code-block::
 
-    template <class T> class Listado  {
+    template< class T > class Listado  {
     private:
         int cantidad;
         int libre;
-        T *v;
+        T * v;
     
     public:
-        Listado(int n=10) : cantidad(n), libre(0), v(new T[n])  {  }
-        bool add(T nuevo);
-        T get(int i)  {  return v[i];  }
+        Listado( int n = 10 ) : cantidad( n ), libre( 0 ), v( new T[ n ] )  {  }
+        bool add( T nuevo );
+        T get( int i )  {  return v[ i ];  }
         int length()  {  return libre;  }
     };
     
-    template <class T> bool Listado<T>::add(T nuevo)  {
-        if (libre < cantidad)  {
-            v[libre] = nuevo;
+    template< class T > bool Listado< T >::add( T nuevo )  {
+        if ( libre < cantidad )  {
+            v[ libre ] = nuevo;
             libre++;
             return true;
         }
@@ -128,13 +128,13 @@ Clase genérica Listado
     }
 
 
-- Observar que la definición de add() se realiza off-line con la sintaxis de una función genérica.
+- Observar que la definición de ``add()`` se realiza off-line con la sintaxis de una función genérica.
 
-- Miembros de clases genéricas definidas off-line: Deben ser declaradas como funciones genéricas.
+- Miembros de clases genéricas definidas off-line deben ser declaradas como funciones genéricas.
 
 .. code-block::
 
-    template <class T> bool Listado<T>::add(T nuevo)  {
+    template< class T > bool Listado< T >::add( T nuevo )  {
 
         ////////////
 
@@ -148,7 +148,7 @@ Ejercicio 1:
 
 .. code-block::
 
-	bool insert(int I, T elemento)
+	bool insert( int I, T elemento )
 
 - Agregar método que elimine todos los elementos
 
@@ -160,12 +160,12 @@ Ejercicio 1:
 
 .. code-block::
 	
-	void erase(int x, bool front_or_back)
+	void erase( int x, bool front_or_back )
 	
 - Método que elimine el elemento de la posición i.
 
 .. code-block::
 	
-	void borrar(int i)
+	void borrar( int i )
 
 
