@@ -9,10 +9,8 @@ Destinado a los estudiantes de la carrera Ing. Informática de la Universidad Bl
 :Fecha: Agosto a noviembre de 2019
 
 
-Créditos
---------
-
-Parte de este material ha sido inspirado y/o adaptado de múltiples fuentes:
+Materiales
+----------
 
 * `Curso de C++ Zator Systems <http://www.zator.com/Cpp/>`_
 * `Aplicativos para desarrollo con Qt/C++ <http://www.qt.io/download-open-source/>`_
