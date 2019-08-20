@@ -7,10 +7,10 @@ Clase 03 - PGE 2019
 (Fecha: 20 de agosto)
 
 
-Ejercicio 2:
-============
+Ejemplo:
+========
 
-- Modificar la clase genérica Listado sobrecargando operator+ de tal forma que al sumar dos listados se obtenga un nuevo objeto Listado con los elementos consecutivos.
+- Modificar la clase genérica Listado sobrecargando ``operator+`` de tal forma que al sumar dos listados se obtenga un nuevo objeto Listado con los elementos consecutivos.
 
 .. code-block::
 
@@ -67,12 +67,16 @@ Ejercicio 2:
 	}
 
 
+Ejercicio 2:
+============
+
+- Sobrecargar el ``operador++`` para que duplique la cantidad máxima de elementos que puede contener el Listado y que también duplique los elementos que ya existían. 
+
+
 Ejercicio 3:
 ============
 
-- Sobrecargar el ``operador++`` para que duplique la cantidad máxima de elementos y también duplique los valores que ya existían.
-
-
+- Sobrecargar el ``operador+`` para que al recibir un nuevo elemento, que inserte una nueva celda (incrementando en 1 la cantidad máxima de elementos que puede contener) y que agregue ese nuevo elemento en la útima celda vacía.
 
 
 
@@ -90,17 +94,17 @@ static
 	#include <QApplication>
 	#include <QDebug>
 
-	int funcion(int a = 2)  {
+	int funcion( int a = 2 )  {
 	    static int suma = 0;
-	    return (suma += a);
+	    return ( suma += a );
 	}
 
-	int main(int argc, char** argv)  {
-	    QApplication a(argc, argv);
+	int main( int argc, char ** argv )  {
+	    QApplication a( argc, argv );
 
-	    qDebug() << funcion();	// 2
-	    qDebug() << funcion(10);	// 12
-	    qDebug() << funcion();	// 14
+	    qDebug() << funcion();	    // 2
+	    qDebug() << funcion( 10 );	// 12
+	    qDebug() << funcion();	    // 14
 
 	    return 0;
 	}
@@ -125,8 +129,8 @@ static
 	    static int x;
 	};
 
-	int main(int argc, char** argv)  {
-	    QApplication a(argc, argv);
+	int main( int argc, char ** argv )  {
+	    QApplication a( argc, argv );
 
 	    A a1;
 	    qDebug() << a1.x;		// No reconoce x
@@ -148,8 +152,8 @@ static
 
 	int A::x = 5;
 
-	int main(int argc, char** argv)  {
-	    QApplication a(argc, argv);
+	int main( int argc, char ** argv )  {
+	    QApplication a( argc, argv );
 
 	    A a1, a2;
 	    qDebug() << a1.x;		// 5
@@ -186,8 +190,8 @@ static
 
 .. code-block:: c
 
-	int main(int argc, char** argv) {
-	    QApplication a(argc, argv);
+	int main( int argc, char ** argv ) {
+	    QApplication a( argc, argv );
 
 	    qDebug() << B::p1;    // Error: no accesible!
 	    qDebug() << B::p2;    // Ok: -> "mundo"
@@ -236,7 +240,7 @@ static
 	    int x;
 
 	    // El constructor no puede modificar así los miembros estáticos
-	    D() : y(10), x(20)  {  }  
+	    D() : y( 10 ), x( 20 )  {  }  
 	};
 
 	int D::y = 1;
@@ -245,7 +249,7 @@ static
 
 .. code-block:: c
 
-	D() : x(20)  {
+	D() : x( 20 )  {
 	    y = 10;
 	}
 
@@ -264,14 +268,14 @@ static
 	class E  {
 	public:
 	    static int x;      // miembro estático
-	    E(int i = 12)  {  x = i;  }   
+	    E( int i = 12 )  {  x = i;  }   
 
 	};
 
 	int E::x = 13;          // definición de miembro
 
-	int main(int argc, char** argv)  {
-	    QApplication(argc, argv);
+	int main( int argc, char ** argv )  {
+	    QApplication( argc, argv );
 
 	    qDebug() << E::x;   // 13
 	    E e1;
