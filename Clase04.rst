@@ -2,11 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 04 - PGE 2018
+Clase 04 - PGE 2019
 ===================
-(Fecha: 27 de agosto)
-
-
+(Fecha: 22 de agosto)
 
 
 **Ejercicio:**
