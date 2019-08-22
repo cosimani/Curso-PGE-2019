@@ -6,6 +6,19 @@ Clase 04 - PGE 2019
 ===================
 (Fecha: 22 de agosto)
 
+**Ejercicio:** Utilizar la misma clase Poste para sobrecargar operator+ para que sume un objeto Poste con un int.
+
+- Esa sobrecarga nos permitirá hacer Poste suma = p1 + 5;
+
+
+- Qué pasa si queremos		 Poste suma = 5 + p1;
+- Debemos hacerlo sobrecargando el operador global.
+
+
+**Sobrecarga de operadores globales**
+
+.. figure:: images/clase03/operadores_globales.png
+
 
 **Ejercicio:**
 
