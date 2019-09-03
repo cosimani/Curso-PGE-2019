@@ -49,7 +49,7 @@ Uso de una clase propia con QtDesigner
 	
 	}
 
-Ejercicio 12:
+Ejercicio 11:
 ============
 
 - Definir la clase TuLabel que herede de QLabel

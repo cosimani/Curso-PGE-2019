@@ -2,9 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 05 - PGE 2018
+Clase 05 - PGE 2019
 ===================
-(Fecha: 30 de agosto)
+(Fecha: 3 de septiembre)
 
 **Clase genérica con argumento por defecto**
 
@@ -19,8 +19,8 @@ Clase 05 - PGE 2018
 .. figure:: images/clase03/miembros_estaticos.png
 
 
-Ejercicio 4:
-============
+Ejercicio:
+==========
 
 - Definir la clase LineaDeTexto que herede de QLineEdit
 - Sobrecargar el operator+ operator= y el contructor copia para que se puede ejecutar la siguiente línea de código:
@@ -31,7 +31,7 @@ Ejercicio 4:
 	// Los tres son objetos LineaDeTexto y la suma devuelve un LineaDeTexto con los textos concatenados
 	
 
-Ejercicio 5:
+Ejercicio 4:
 ============
 
 - Incorporar LineaDeTexto a un proyecto de Qt para promocionarlo en QtDesigner
@@ -44,7 +44,7 @@ Ejercicio 5:
 MiniExamen de preguntas múltiples
 =================================
 
-:Tarea para Clase 6:
+:Tarea para Clase 7:
 	Completar y estudiar exhaustivamente la clase Listado
 
 	Estudiar sobrecarga de operadores y templates

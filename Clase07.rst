@@ -11,7 +11,7 @@ Clase QCompleter
 
 .. figure:: images/clase03/qcompleter.png
 
-Ejercicio 7:
+Ejercicio 6:
 ============
 
 - Hacer lo mismo pero la base de datos que sea un archivo SQLite.

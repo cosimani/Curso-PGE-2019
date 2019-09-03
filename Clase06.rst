@@ -2,9 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 06 - PGE 2018
+Clase 06 - PGE 2019
 ===================
-(Fecha: 3 de septiembre)
+(Fecha: 5 de septiembre)
 	
 
 **Resololución del Ejercicio LineaDeTexto:**
@@ -21,28 +21,28 @@ Clase 06 - PGE 2018
 	    // Recordar que sin el Q_OBJECT no podremos definir signals ni slots en esta clase
 
 	public:
-	    LineaDeTexto(QString texto = "") : QLineEdit(texto)  {  }
+	    LineaDeTexto( QString texto = "" ) : QLineEdit( texto )  {  }
 
 	    // El constructor copia debe invocar explicitamente al constructor de 
 	    // la clase base para que el compilador no tire un warning
-	    LineaDeTexto(const LineaDeTexto & linea) : QLineEdit()  {
-	        this->setText(linea.text());
+	    LineaDeTexto( const LineaDeTexto & linea ) : QLineEdit()  {
+	        this->setText( linea.text() );
 	    }
 
-	    LineaDeTexto& operator=(const LineaDeTexto & linea)  {
-	        this->setText(linea.text());
+	    LineaDeTexto& operator=( const LineaDeTexto & linea )  {
+	        this->setText( linea.text() );
 	        return *this;
 	    }
 
-	    LineaDeTexto operator+(const LineaDeTexto & linea)  {
-	        return LineaDeTexto(this->text() + linea.text());
+	    LineaDeTexto operator+( const LineaDeTexto & linea )  {
+	        return LineaDeTexto( this->text() + linea.text() );
 	    }
 	};
 
-	int main(int argc, char *argv[])  {
-	    QApplication a(argc, argv);
-	    LineaDeTexto linea1("Hola ");
-	    LineaDeTexto linea2("che");
+	int main( int argc, char *argv[] )  {
+	    QApplication a( argc, argv );
+	    LineaDeTexto linea1( "Hola " );
+	    LineaDeTexto linea2( "che" );
 	    LineaDeTexto total;
 
 	    total = linea1 + linea2;
@@ -75,7 +75,7 @@ Captura de eventos con eventFilter
 		Q_OBJECT
 
 	public:
-		explicit Principal(QWidget *parent = 0);
+		explicit Principal( QWidget * parent = 0 );
 		~Principal();
 
 	private:
@@ -85,8 +85,8 @@ Captura de eventos con eventFilter
 		QImage * image;
 
 	protected:
-		void paintEvent(QPaintEvent * e);
-		bool eventFilter(QObject *, QEvent *);
+		void paintEvent( QPaintEvent * e );
+		bool eventFilter( QObject *, QEvent * );
 
 	private slots:
 		void slot_ciclos();
@@ -102,15 +102,15 @@ Captura de eventos con eventFilter
 
 
 
-	Principal::Principal(QWidget *parent) : QWidget(parent), ui(new Ui::Principal),
-							 rotacion(0), transX(0), transY(0)
+	Principal::Principal( QWidget * parent ) : QWidget( parent ), ui( new Ui::Principal ),
+							 rotacion( 0 ), transX( 0 ), transY( 0 )
 	{
-		ui->setupUi(this);
-		this->installEventFilter(this);
-		image = new QImage(":/User.png");
+		ui->setupUi( this );
+		this->installEventFilter( this );
+		image = new QImage( ":/User.png" );
 		timer = new QTimer;
-		timer->setInterval(20);
-		connect(timer, SIGNAL(timeout()), SLOT(slot_ciclos()));
+		timer->setInterval( 20 );
+		connect( timer, SIGNAL( timeout() ), SLOT( slot_ciclos() ) );
 		timer->start();
 	}
 
@@ -118,12 +118,12 @@ Captura de eventos con eventFilter
 		delete ui;
 	}
 
-	void Principal::paintEvent(QPaintEvent * e)  {
-		QPainter* p = new QPainter(this);
-		p->translate(this->width()/2 + transX, this->height()/2 + transY);
-		p->rotate(10*++rotacion);
-		p->drawImage(0, 0, *image);
-		if (rotacion>=360)
+	void Principal::paintEvent( QPaintEvent * e )  {
+		QPainter* p = new QPainter( this );
+		p->translate( this->width() / 2 + transX, this->height() / 2 + transY );
+		p->rotate( 10*++rotacion );
+		p->drawImage( 0, 0, *image );
+		if ( rotacion >= 360 )
 			rotacion = 0;
 	}
 
@@ -131,11 +131,11 @@ Captura de eventos con eventFilter
 		this->repaint();
 	}
 
-	bool Principal::eventFilter(QObject *obj, QEvent *e)  {
-		if (obj == this)  {
-			if (e->type() == QEvent::KeyPress)  {
-				int key = static_cast<QKeyEvent*>(e)->key();
-				switch(key)  {
+	bool Principal::eventFilter( QObject * obj, QEvent * e )  {
+		if ( obj == this )  {
+			if ( e->type() == QEvent::KeyPress )  {
+				int key = static_cast< QKeyEvent * >( e )->key();
+				switch( key )  {
 				case Qt::Key_Up:
 					transY -= 10;
 					break;
@@ -161,10 +161,11 @@ Captura de eventos con eventFilter
 
 		// Esto es para que la clase base decida si necesita controlar los eventos
 		// que no estamos capturando nosotros.
-		return QWidget::eventFilter(obj, e);
+		return QWidget::eventFilter( obj, e );
 	}
 
-Ejercicio 6:
+
+Ejercicio 5:
 ============
 
 - Modificar este ejemplo para que la imagen rote sobre su centro.

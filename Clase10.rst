@@ -21,7 +21,7 @@ Clase 10 - PGE 2018
 
 :Buscar íconos aquí: http://findicons.com/
 
-Ejercicio 13:
+Ejercicio 12:
 ============
 
 - Editor de  código fuente C++
