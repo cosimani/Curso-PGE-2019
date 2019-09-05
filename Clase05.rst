@@ -34,11 +34,32 @@ Ejercicio:
 Ejercicio 4:
 ============
 
-- Incorporar LineaDeTexto a un proyecto de Qt para promocionarlo en QtDesigner
-- Crear un Formulario con QtDesigner que tenga 4 LineaDeTexto promocionadas
-- El formulario será para alta de personas
-- Un campo para Nombre, otro para Apellido, para DNI y uno para Nombre completo.
-- Esta última LineaDeTexto concatenará en tiempo real el nombre y apellido usando el operator+ de LineaDeTexto
+- Agregar a la clase LineaDeTexto las características para permitir ejecutar la siguiente función main()
+
+
+.. code-block:: c
+	
+	#include <QApplication>
+	#include "lineadetexto.h"
+
+	int main( int argc, char ** argv )  {
+	    QApplication a( argc, argv );
+
+	    LineaDeTexto linea;
+
+	    {
+
+	        LineaDeTexto l1 = "Hola";
+	        LineaDeTexto l2 = "che";
+
+	        linea = l1 + l2;
+	    }
+
+	    linea.show();  // Esta línea mostrará un QLineEdit con el texto 'Hola che'
+
+	    return a.exec();
+	}
+
 
 
 MiniExamen de preguntas múltiples

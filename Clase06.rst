@@ -7,7 +7,7 @@ Clase 06 - PGE 2019
 (Fecha: 5 de septiembre)
 	
 
-**Resololución del Ejercicio LineaDeTexto:**
+**Una opción para la creación de la clase LineaDeTexto:**
 
 .. code-block::
 
@@ -50,6 +50,16 @@ Clase 06 - PGE 2019
 
 	    return a.exec();
 	}
+
+
+Ejercicio 4:
+============
+
+- Incorporar LineaDeTexto a un proyecto de Qt para promocionarlo en QtDesigner
+- Crear un Formulario con QtDesigner que tenga 4 LineaDeTexto promocionadas
+- El formulario será para alta de personas
+- Un campo para Nombre, otro para Apellido, para DNI y uno para Nombre completo.
+- Esta última LineaDeTexto concatenará en tiempo real el nombre y apellido usando el operator+ de LineaDeTexto
 
 
 Captura de eventos con eventFilter
@@ -102,66 +112,71 @@ Captura de eventos con eventFilter
 
 
 
-	Principal::Principal( QWidget * parent ) : QWidget( parent ), ui( new Ui::Principal ),
-							 rotacion( 0 ), transX( 0 ), transY( 0 )
+	Principal::Principal( QWidget * parent ) : QWidget( parent ), 
+	                                           ui( new Ui::Principal ),
+	                                           rotacion( 0 ), 
+	                                           transX( 0 ), 
+	                                           transY( 0 )
 	{
-		ui->setupUi( this );
-		this->installEventFilter( this );
-		image = new QImage( ":/User.png" );
-		timer = new QTimer;
-		timer->setInterval( 20 );
-		connect( timer, SIGNAL( timeout() ), SLOT( slot_ciclos() ) );
-		timer->start();
+	    ui->setupUi( this );
+	    this->installEventFilter( this );
+	    image = new QImage( ":/User.png" );
+	    timer = new QTimer;
+	    timer->setInterval( 20 );
+	    connect( timer, SIGNAL( timeout() ), SLOT( slot_ciclos() ) );
+	    timer->start();
 	}
 
 	Principal::~Principal()  {
-		delete ui;
+	    delete ui;
 	}
 
 	void Principal::paintEvent( QPaintEvent * e )  {
-		QPainter* p = new QPainter( this );
-		p->translate( this->width() / 2 + transX, this->height() / 2 + transY );
-		p->rotate( 10*++rotacion );
-		p->drawImage( 0, 0, *image );
-		if ( rotacion >= 360 )
-			rotacion = 0;
+	    QPainter* p = new QPainter( this );
+	    p->translate( this->width() / 2 + transX, this->height() / 2 + transY );
+	    p->rotate( 10*++rotacion );
+	    p->drawImage( 0, 0, *image );
+	    if ( rotacion >= 360 )
+	        rotacion = 0;
 	}
 
 	void Principal::slot_ciclos()  {
-		this->repaint();
+	    this->repaint();
 	}
 
 	bool Principal::eventFilter( QObject * obj, QEvent * e )  {
-		if ( obj == this )  {
-			if ( e->type() == QEvent::KeyPress )  {
-				int key = static_cast< QKeyEvent * >( e )->key();
-				switch( key )  {
-				case Qt::Key_Up:
-					transY -= 10;
-					break;
-				case Qt::Key_Down:
-					transY += 10;
-					break;
-				case Qt::Key_Left:
-					transX -= 10;
-					break;
-				case Qt::Key_Right:
-					transX += 10;
-					break;
-				case Qt::Key_Escape:
-					this->close();
-					break;
-				}
+	    if ( obj == this )  {
+	        if ( e->type() == QEvent::KeyPress )  {
+	            int key = static_cast< QKeyEvent * >( e )->key();
 
-				// Devolvemos true para indicar que este evento ya lo controlamos aquí
-				// y no es necesario que se propague para que alguien más lo controle.
-				return true;  
-			}
-		}
+	            switch( key )  {
+	            
+	            case Qt::Key_Up:
+	                transY -= 10;
+	                break;
+	            case Qt::Key_Down:
+	                transY += 10;
+	                break;
+	            case Qt::Key_Left:
+	                transX -= 10;
+	                break;
+	            case Qt::Key_Right:
+	                transX += 10;
+	                break;
+	            case Qt::Key_Escape:
+	                this->close();
+	                break;
+	            }
 
-		// Esto es para que la clase base decida si necesita controlar los eventos
-		// que no estamos capturando nosotros.
-		return QWidget::eventFilter( obj, e );
+	            // Devolvemos true para indicar que este evento ya lo controlamos aquí
+	            // y no es necesario que se propague para que alguien más lo controle.
+	            return true;  
+	        }
+	    }
+
+	    // Esto es para que la clase base decida si necesita controlar los eventos
+	    // que no estamos capturando nosotros.
+	    return QWidget::eventFilter( obj, e );
 	}
 
 
