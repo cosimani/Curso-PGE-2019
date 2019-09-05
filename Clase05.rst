@@ -48,7 +48,6 @@ Ejercicio 4:
 	    LineaDeTexto linea;
 
 	    {
-
 	        LineaDeTexto l1 = "Hola";
 	        LineaDeTexto l2 = "che";
 

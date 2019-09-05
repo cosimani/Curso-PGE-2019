@@ -52,7 +52,7 @@ Clase 06 - PGE 2019
 	}
 
 
-Ejercicio 4:
+Ejercicio 5:
 ============
 
 - Incorporar LineaDeTexto a un proyecto de Qt para promocionarlo en QtDesigner
@@ -78,28 +78,28 @@ Captura de eventos con eventFilter
 	class QImage;
 
 	namespace Ui  {
-		class Principal;
+	    class Principal;
 	}
 
 	class Principal : public QWidget  {
-		Q_OBJECT
+	    Q_OBJECT
 
 	public:
-		explicit Principal( QWidget * parent = 0 );
-		~Principal();
+	    explicit Principal( QWidget * parent = 0 );
+	    ~Principal();
 
 	private:
-		Ui::Principal *ui;
-		QTimer* timer;
-		int rotacion, transX, transY;
-		QImage * image;
+	    Ui::Principal *ui;
+	    QTimer* timer;
+	    int rotacion, transX, transY;
+	    QImage * image;
 
 	protected:
-		void paintEvent( QPaintEvent * e );
-		bool eventFilter( QObject *, QEvent * );
+	    void paintEvent( QPaintEvent * e );
+	    bool eventFilter( QObject *, QEvent * );
 
 	private slots:
-		void slot_ciclos();
+	    void slot_ciclos();
 	};
 
 
@@ -150,7 +150,7 @@ Captura de eventos con eventFilter
 	            int key = static_cast< QKeyEvent * >( e )->key();
 
 	            switch( key )  {
-	            
+
 	            case Qt::Key_Up:
 	                transY -= 10;
 	                break;
@@ -180,7 +180,7 @@ Captura de eventos con eventFilter
 	}
 
 
-Ejercicio 5:
+Ejercicio 6:
 ============
 
 - Modificar este ejemplo para que la imagen rote sobre su centro.
