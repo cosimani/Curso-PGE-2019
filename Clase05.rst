@@ -61,8 +61,8 @@ Ejercicio 4:
 
 
 
-MiniExamen de preguntas múltiples
-=================================
+Para Opcionables y Mini Examen
+==============================
 
 :Tarea para Clase 7:
 	Completar y estudiar exhaustivamente la clase Listado
