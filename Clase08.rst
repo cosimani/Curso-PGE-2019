@@ -2,10 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 08 - PGE 2018
+Clase 08 - PGE 2019
 ===================
-(Fecha: 10 de septiembre)
-
+(Fecha: 12 de septiembre)
 
 
 
@@ -225,7 +224,7 @@ Clase 08 - PGE 2018
 **Ejercicio** Hacerlo funcionar.
 
 
-Ejercicio 7:
+Ejercicio 8:
 ============
 
 - Definir una clase genérica Vector que herede de QVector.
@@ -235,18 +234,18 @@ Ejercicio 7:
 	- float getPromedio() - Si los elementos son int o float, devolver el promedio sino devolver -1
 
 
-Ejercicio 8:
+Ejercicio 9:
 ============
 
 - Cuando alguna búsqueda no exista en la base de datos (QStringList lista), entonces que la agregue..
 
-Ejercicio 9:
+Ejercicio 10:
 ============
 
 - En lugar de utilizar un QStringList como base de datos, utilizar una base de datos SQLite
 - Agregar esta característica de autocompletado a la clase LineaDeTexto.
 
-Ejercicio 10:
+Ejercicio 11:
 ============
 
 - Agregar el método setDiccionario(QString archivo) para agregar un diccionario a la base de datos (QStringList lista).
