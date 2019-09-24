@@ -10,7 +10,7 @@ Clase 08 - PGE 2019
 **Resolución conjunta del ejercicio del MiniExamen 1**
 
 
-.. code-block::c
+.. code-block::
 
 	#include <QVector>
 
@@ -28,7 +28,7 @@ Clase 08 - PGE 2019
 	};
 
 
-.. code-block::c
+.. code-block::
 	
 	#include <QApplication>
 	#include <QDebug>
