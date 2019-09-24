@@ -2,10 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 10 - PGE 2018
+Clase 10 - PGE 2019
 ===================
-(Fecha: 17 de septiembre)
-
+(Fecha: 24 de septiembre)
 
 
 **Creación y uso de librerías dinámicas**
@@ -18,11 +17,13 @@ Clase 10 - PGE 2018
 
 .. figure:: images/clase08/librerias03.png
 
-**Ejercicio**
-	- Utilizar la clase LineaDeTexto.
-	- Con todas las carecterísticas que hemos ido agregando (las sugerencias, los operadores, etc.)
-	- Crear una librería dinámica con esta clase.
-	- Usar esta librería en otro proyecto para probar su funcionamiento.
+Ejercicio 12
+============
+
+- Utilizar la clase LineaDeTexto.
+- Con todas las carecterísticas que hemos ido agregando (las sugerencias, los operadores, etc.)
+- Crear una librería dinámica con esta clase.
+- Usar esta librería en otro proyecto para probar su funcionamiento.
 
 Uso de una clase propia con QtDesigner
 ======================================
@@ -44,29 +45,11 @@ Uso de una clase propia con QtDesigner
 
 .. code-block::
 
-	MiLabel(QWidget *parent = 0);  // Esto en miLabel.h
+	MiLabel( QWidget * parent = 0 );  // Esto en miLabel.h
 
-	MiLabel::MiLabel(QWidget *parent) : QLabel(parent)  {  // Esto en miLabel.cpp
+	MiLabel::MiLabel( QWidget * parent ) : QLabel( parent )  {  // Esto en miLabel.cpp
 	
 	}
-
-Ejercicio 11:
-============
-
-- Definir la clase TuLabel que herede de QLabel
-- Agregar un QLabel a la GUI y promoverlo a TuLabel
-- Agregar un método void cambiarTexto(QString nuevoTexto)
-- Usar ese método desde la clase Principal de la siguiente forma:
-
-.. code-block::
-
-	ui->tuLabel->cambiarTexto("Sos un TuLabel?");
-
-**Ejercicio**
-	- En una nueva aplicación utilizar la clase LineaDeTexto con la característica de sugerencias
-	- Diseñar la GUI con QtDesigner usando QLineEdit y promoverlo a LineaDeTexto
-
-
 
 
 **QMainWindow**
@@ -83,7 +66,7 @@ Ejercicio 11:
 
 :Buscar íconos aquí: http://findicons.com/
 
-Ejercicio 12:
+Ejercicio 13:
 ============
 
 - Editor de  código fuente C++
