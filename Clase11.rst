@@ -34,7 +34,7 @@ Uso de una clase propia con QtDesigner
 - La clase MiLabel deberá heredar de QLabel
 - El constructor debe tener como parámetro:
 
-.. code-block::
+.. code-block:: c++
 
 	MiLabel( QWidget * parent = 0 );  // Esto en miLabel.h
 

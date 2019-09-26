@@ -47,7 +47,7 @@ Utilización de cámaras de video con Qt
 
 **Instanciar QCamera y mostrar los frames sobre el QCameraViewfinder**
 
-.. code-block::
+.. code-block:: c++
 
     QCameraInfo cameraInfo = cameras.at(0);
     QCamera * camera = new QCamera(cameraInfo);
@@ -61,7 +61,7 @@ Utilización de cámaras de video con Qt
 
 **Creación de un visor promovido a QWidget para QtDesigner**
 
-.. code-block::
+.. code-block:: c++
 
 	// Puede estar sólo en el .h (en visor.h)
 	#ifndef VISOR_H
