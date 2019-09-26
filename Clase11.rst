@@ -9,9 +9,11 @@ Clase 11 - PGE 2019
 Ejercicio 12
 ============
 
+- Utilizar la clase Login (de la clase pasada).
 - Utilizar la clase LineaDeTexto.
-- Con todas las carecterísticas que hemos ido agregando (las sugerencias, los operadores, etc.)
-- Crear una librería dinámica con esta clase.
+- LineaDeTexto debe tener las carecterísticas que hemos ido agregando (las sugerencias, los operadores, etc.)
+- Crear una librería dinámica con estas clases.
+- Crear una carpeta con subcarpetas con los archivos importantes (.h .dll .a)
 - Usar esta librería en otro proyecto para probar su funcionamiento.
 
 Uso de una clase propia con QtDesigner
