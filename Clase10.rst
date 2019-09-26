@@ -17,60 +17,86 @@ Clase 10 - PGE 2019
 
 .. figure:: images/clase08/librerias03.png
 
-Ejercicio 12
-============
 
-- Utilizar la clase LineaDeTexto.
-- Con todas las carecterísticas que hemos ido agregando (las sugerencias, los operadores, etc.)
-- Crear una librería dinámica con esta clase.
-- Usar esta librería en otro proyecto para probar su funcionamiento.
+Ejemplo
+=======
 
-Uso de una clase propia con QtDesigner
-======================================
+- Crear una clase Login que tenga una funcionalidad independiente
+- Crear un librería dinámica que la contenga
+- Usar esta librería en otro proyecto
 
-- Deben heredar de algún QWidget
-- Colocamos el widget (clase base) con QtDesigner
-- Clic derecho "Promote to"
+**clase Login que puede servir para usar en este ejemplo**
 
-.. figure:: images/clase07/qtdesigner.png
-					 
-- Base class name: QLabel
-- Promoted class name: MiLabel
-- Header file: miLabel.h
-- Add (y con esto queda disponible para promover)
+- Sólo se muestra el código de los archivo login.h y login.cpp
+- Tener en cuenta que la GUI de este login está creado con el QtDesigner
+- Sus widgets en el layout son: ui->leUsuario ui->leClave ui->pb
 
+.. code-block::c
 
-- La clase MiLabel deberá heredar de QLabel
-- El constructor debe tener como parámetro:
+	// Archivo login.h ////////////////////////////
 
-.. code-block::
+	#ifndef LOGIN_H
+	#define LOGIN_H
 
-	MiLabel( QWidget * parent = 0 );  // Esto en miLabel.h
+	#include <QWidget>
+	#include <QVector>
+	#include <QStringList>
 
-	MiLabel::MiLabel( QWidget * parent ) : QLabel( parent )  {  // Esto en miLabel.cpp
-	
+	namespace Ui  {
+	    class Login;
 	}
 
+	class Login : public QWidget  {
+	    Q_OBJECT
 
-**QMainWindow**
+	public:
+	    explicit Login( QWidget * parent = 0 );
+	    ~Login();
+	    void agregarUsuario( QString usuario, QString clave );
 
-.. figure:: images/clase08/qmainwindow.png
+	private:
+	    Ui::Login *ui;
+	    QVector< QStringList > baseUsuarios;
 
-**QAction**
+	signals:
+	    void signal_usuarioLogueado();
 
-.. figure:: images/clase08/qaction.png
+	private slots:
+	    void slot_validarUsuario();
+	};
 
-**QIcon**
+	#endif // LOGIN_H
 
-.. figure:: images/clase08/qicon.png
+.. code-block::c
 
-:Buscar íconos aquí: http://findicons.com/
+	// Archivo login.cpp ////////////////////////////
 
-Ejercicio 13:
-============
+	#include "login.h"
+	#include "ui_login.h"
 
-- Editor de  código fuente C++
+	Login::Login( QWidget * parent ) : QWidget( parent ), ui( new Ui::Login )  {
+	    ui->setupUi( this );
 
-.. figure:: images/clase08/ejercicio.png
+	    ui->leClave->setEchoMode( QLineEdit::Password );
 
+	    connect( ui->pb, SIGNAL( pressed() ), this, SLOT( slot_validarUsuario() ) );
+	}
 
+	Login::~Login()  {
+	    delete ui;
+	}
+
+	void Login::agregarUsuario( QString usuario, QString clave )  {
+	    QStringList usuarioNuevo;
+	    usuarioNuevo << usuario << clave;
+	    baseUsuarios.append( usuarioNuevo );
+	}
+
+	void Login::slot_validarUsuario()  {
+	    QStringList usuarioIngresado;
+	    usuarioIngresado << ui->leUsuario->text() << ui->leClave->text();
+
+	    if ( baseUsuarios.contains( usuarioIngresado) )  {
+	        emit signal_usuarioLogueado();
+	    }
+	}
