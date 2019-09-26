@@ -29,9 +29,9 @@ Ejemplo
 
 - Sólo se muestra el código de los archivo login.h y login.cpp
 - Tener en cuenta que la GUI de este login está creado con el QtDesigner
-- Sus widgets en el layout son: ui->leUsuario ui->leClave ui->pb
+- Sus widgets en el layout son: ``ui->leUsuario`` ``ui->leClave`` ``ui->pb``
 
-.. code-block::c
+.. code-block::
 
 	// Archivo login.h ////////////////////////////
 
@@ -67,7 +67,7 @@ Ejemplo
 
 	#endif // LOGIN_H
 
-.. code-block::c
+.. code-block::
 
 	// Archivo login.cpp ////////////////////////////
 
