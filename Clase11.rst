@@ -16,6 +16,11 @@ Ejercicio 12
 - Crear una carpeta con subcarpetas con los archivos importantes (.h .dll .a)
 - Usar esta librería en otro proyecto para probar su funcionamiento.
 
+
+**Esquema para creación y uso de librerías**
+
+.. figure:: images/clase11/cuadro_librerias.jpg
+
 Uso de una clase propia con QtDesigner
 ======================================
 
@@ -42,26 +47,5 @@ Uso de una clase propia con QtDesigner
 	
 	}
 
-
-**QMainWindow**
-
-.. figure:: images/clase08/qmainwindow.png
-
-**QAction**
-
-.. figure:: images/clase08/qaction.png
-
-**QIcon**
-
-.. figure:: images/clase08/qicon.png
-
-:Buscar íconos aquí: http://findicons.com/
-
-Ejercicio 13:
-============
-
-- Editor de  código fuente C++
-
-.. figure:: images/clase08/ejercicio.png
 
 

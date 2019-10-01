@@ -2,9 +2,30 @@
 
 .. _rcs_subversion:
 
-Clase 12 - PGE 2018
+Clase 12 - PGE 2019
 ===================
-(Fecha: 24 de septiembre)
+(Fecha: 1 de octubre)
+
+**QMainWindow**
+
+.. figure:: images/clase08/qmainwindow.png
+
+**QAction**
+
+.. figure:: images/clase08/qaction.png
+
+**QIcon**
+
+.. figure:: images/clase08/qicon.png
+
+:Buscar íconos aquí: http://findicons.com/
+
+Ejercicio 13:
+============
+
+- Editor de  código fuente C++
+
+.. figure:: images/clase08/ejercicio.png
 
 
 
