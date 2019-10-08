@@ -7,6 +7,14 @@ Clase 13 - PGE 2019
 (Fecha: 8 de octubre)
 
 
+**Ejemplo para acomodar widgets a mano**
+
+- Uso de showEvent
+- Trabajar con porcentajes
+- No uso de QGridLayout
+- Usar los métodos de QWidget resize y move.
+
+
 Utilización de cámaras de video con Qt
 ======================================
 
