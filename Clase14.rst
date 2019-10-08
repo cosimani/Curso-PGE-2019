@@ -2,9 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 14 - PGE 2018
+Clase 14 - PGE 2019
 ===================
-(Fecha: 1 de octubre)
+(Fecha: 10 de octubre)
 
 
 MiniExamen de preguntas múltiples
@@ -22,6 +22,8 @@ MiniExamen de preguntas múltiples
 	Ver `Tutorial Qt Creator - QTimer <https://www.youtube.com/watch?v=c6JZECBL54Q>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
 
 	Ver `Tutorial Qt Creator - Archivo de recursos <https://www.youtube.com/watch?v=u8xKE0zHLsE>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
+
+	Se tomarán preguntas en Opcionables y un MiniExamen para desarrollar en computadora
 
 
 
@@ -57,12 +59,12 @@ Levantar frame por frame: Clase QAbstractVideoSurface
 	    Q_OBJECT
 
 	public:
-	    Capturador(QObject *parent = 0);
+	    Capturador( QObject * parent = 0 );
 
-	    QList<QVideoFrame::PixelFormat> supportedPixelFormats(
+	    QList< QVideoFrame::PixelFormat > supportedPixelFormats(
 	          QAbstractVideoBuffer::HandleType handleType = QAbstractVideoBuffer::NoHandle ) const;
 
-	    bool present(const QVideoFrame &frame);
+	    bool present( const QVideoFrame & frame );
 
 	    QVideoFrame getFrameActual()  {  return frameActual;  }
 
@@ -77,10 +79,10 @@ Levantar frame por frame: Clase QAbstractVideoSurface
 
 .. code-block:: c++
 
-	bool Capturador::present(const QVideoFrame &frame)  {
+	bool Capturador::present( const QVideoFrame & frame )  {
 	    frameActual = frame;
 		
-	    frameActual.map(QAbstractVideoBuffer::ReadOnly);
+	    frameActual.map( QAbstractVideoBuffer::ReadOnly );
 		
 	    return true;  // Con la idea de devolver true si este frame fue usado
 	}
@@ -90,16 +92,16 @@ Levantar frame por frame: Clase QAbstractVideoSurface
 
 .. code-block:: c++
 
-	QList<QVideoFrame::PixelFormat> Capturador::supportedPixelFormats(
+	QList< QVideoFrame::PixelFormat > Capturador::supportedPixelFormats(
 	                         QAbstractVideoBuffer::HandleType handleType ) const  {
 	
-	    if (handleType == QAbstractVideoBuffer::NoHandle) {
-	        return QList<QVideoFrame::PixelFormat>()
+	    if ( handleType == QAbstractVideoBuffer::NoHandle ) {
+	        return QList< QVideoFrame::PixelFormat >()
 	                                                  << QVideoFrame::Format_RGB32
 	                                                  << QVideoFrame::Format_ARGB32;
 	    }
 	    else {
-	        return QList<QVideoFrame::PixelFormat>();
+	        return QList< QVideoFrame::PixelFormat >();
 	    }
 	}
 
@@ -107,7 +109,7 @@ Levantar frame por frame: Clase QAbstractVideoSurface
 
 .. code-block:: c++
 
-	Capturador::Capturador(QObject *parent) : QAbstractVideoSurface(parent)  {
+	Capturador::Capturador( QObject * parent ) : QAbstractVideoSurface( parent )  {
 
 	}
 

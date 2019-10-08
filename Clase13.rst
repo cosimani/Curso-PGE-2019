@@ -70,9 +70,9 @@ Ejercicio 15:
 ============
 
 - Siguiendo el ejercicio anterior, crear una carpeta donde se irán guardando las imágenes de la cámara
-- Colocar un QSlider con rango entre 500 y 5000, paso de 500, que indica un cantidad en mili segundos
-- Descargar en disco las imágenes en archivos jpg cada un tiempo en mseg según el QSlider
-- El nombre del archivo tendrá la fecha y hora en que fue capturada.
+- Colocar un QSlider con rango entre 500 y 5000, paso de 500, que indica una cantidad en mili segundos
+- Descargar en el disco las imágenes en archivos jpg cada un tiempo según el QSlider anterior
+- El nombre del archivo tendrá la fecha y hora en que fue capturada
 
 Ejercicio 16:
 ============
@@ -118,10 +118,10 @@ Base de datos con SQLite (repaso)
     QPixmap pixMap = ui->visor->grab();  // Para llevar el QWidget a QImage
     QImage image = pixMap.toImage();
 
-    for (int x=0 ; x<image.width() ; x++)  {
-        for (int y=0 ; y<image.height() ; y++)  {
-            QRgb rgb = image.pixel(x, y);  // typedef unsigned int QRgb;
-            QRgb nuevoValorRgb = qRgb(qRed(rgb), 0, 0);
-            image.setPixel(x, y, nuevoValorRgb);
+    for ( int x = 0 ; x < image.width() ; x++ )  {
+        for ( int y = 0 ; y < image.height() ; y++ )  {
+            QRgb rgb = image.pixel( x, y );  // typedef unsigned int QRgb;
+            QRgb nuevoValorRgb = qRgb( qRed( rgb ), 0, 0 );
+            image.setPixel( x, y, nuevoValorRgb );
         }
     }
