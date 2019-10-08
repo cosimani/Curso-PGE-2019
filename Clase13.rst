@@ -88,6 +88,25 @@ Ejercicio 16:
 - Siguiendo el ejercicio anterior, usar todas las imágenes de esa carpeta mostrándolas en un QWidget cada 100 mseg.
 
 
+**Análisis píxel a píxel**
+
+- **Ejemplo:** Dejar sólo el componente rojo
+
+.. code-block::
+
+    QPixmap pixMap = ui->visor->grab();  // Para llevar el QWidget a QImage
+    QImage image = pixMap.toImage();
+
+    for ( int x = 0 ; x < image.width() ; x++ )  {
+        for ( int y = 0 ; y < image.height() ; y++ )  {
+            QRgb rgb = image.pixel( x, y );  // typedef unsigned int QRgb;
+            QRgb nuevoValorRgb = qRgb( qRed( rgb ), 0, 0 );
+            image.setPixel( x, y, nuevoValorRgb );
+        }
+    }
+
+
+
 Base de datos con SQLite (repaso)
 ========================
 
@@ -117,19 +136,3 @@ Base de datos con SQLite (repaso)
 
 
 
-**Análisis píxel a píxel**
-
-- **Ejemplo:** Dejar sólo el componente rojo
-
-.. code-block::
-
-    QPixmap pixMap = ui->visor->grab();  // Para llevar el QWidget a QImage
-    QImage image = pixMap.toImage();
-
-    for ( int x = 0 ; x < image.width() ; x++ )  {
-        for ( int y = 0 ; y < image.height() ; y++ )  {
-            QRgb rgb = image.pixel( x, y );  // typedef unsigned int QRgb;
-            QRgb nuevoValorRgb = qRgb( qRed( rgb ), 0, 0 );
-            image.setPixel( x, y, nuevoValorRgb );
-        }
-    }
