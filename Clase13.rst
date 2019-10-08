@@ -19,20 +19,20 @@ Utilización de cámaras de video con Qt
 
 .. code-block::
 
-	QList<QCameraInfo> cameras = QCameraInfo::availableCameras();
-	for (int i=0 ; i<cameras.size() ; i++)  
-	    qDebug() << cameras.at(i).description();
+	QList< QCameraInfo > cameras = QCameraInfo::availableCameras();
+	for ( int i = 0 ; i < cameras.size() ; i++ )  
+	    qDebug() << cameras.at( i ).description();
 
 **Instanciar QCamera y mostrar los frames sobre el QCameraViewfinder**
 
 .. code-block:: c++
 
-    QCameraInfo cameraInfo = cameras.at(0);
-    QCamera * camera = new QCamera(cameraInfo);
+    QCameraInfo cameraInfo = cameras.at( 0 );
+    QCamera * camera = new QCamera( cameraInfo );
 
-    QCameraViewfinder *visor = new QCameraViewfinder;
+    QCameraViewfinder * visor = new QCameraViewfinder;
 
-    camera->setViewfinder(visor);
+    camera->setViewfinder( visor );
     camera->start();
 
     visor->show();
@@ -50,7 +50,7 @@ Utilización de cámaras de video con Qt
 	class Visor : public QCameraViewfinder  {
 	    Q_OBJECT
 	public:
-	    explicit Visor(QWidget *parent = 0 ) : QCameraViewfinder(parent)  {   }
+	    explicit Visor( QWidget * parent = 0 ) : QCameraViewfinder( parent )  {   }
 	};
 
 	#endif // VISOR_H
@@ -64,7 +64,7 @@ Utilización de cámaras de video con Qt
 
 **Resolución**
 
-:Código fuente: https://github.com/cosimani/Curso-PGE-2015/tree/master/sources/clase10/camera
+- `Código fuente <https://github.com/cosimani/Curso-PGE-2019/blob/master/resources/clase13/camera.zip?raw=true>`_
 
 Ejercicio 15:
 ============
