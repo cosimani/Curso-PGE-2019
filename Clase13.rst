@@ -88,7 +88,8 @@ Ejercicio 16:
 - Siguiendo el ejercicio anterior, usar todas las imágenes de esa carpeta mostrándolas en un QWidget cada 100 mseg.
 
 
-**Análisis píxel a píxel**
+Análisis píxel a píxel
+======================
 
 - **Ejemplo:** Dejar sólo el componente rojo
 
