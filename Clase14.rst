@@ -379,22 +379,13 @@ Ejercicio 22:
 - Dar a este método la funcionalidad que desee, pero es obligatorio que se escriba la documentación en el mismo código.
 
 
-Recordatorio sobre la entrega de ejercicios
-===========================================
-
-- Se deberán entregar todos aquellos ejercicios que están enumerados
-- Cada alumno entregará sólo algunos ejercicios ordenados según este `Documento en Drive <https://drive.google.com/open?id=1vWvyURotFdkajHtiL18khStC7waNYwu0a5vL1RmZFvo>`_
-
-
-
-
-
 
 
 Uso de singleton
 ================
 
 .. figure:: images/clase13/singleton.png
+
 
 **Ejemplo de Manager como singleton**
 
@@ -533,11 +524,11 @@ Uso de atributos estáticos
 
 	class Archivador  {
 	private:
-		static QFile *file;
+	    static QFile *file;
 
 	public:
-		static bool abrir(QString ruta);
-		static bool almacenar(QString texto);
+	    static bool abrir( QString ruta );
+	    static bool almacenar( QString texto );
 	};
 	
 	#endif // ARCHIVADOR_H
@@ -550,24 +541,24 @@ Uso de atributos estáticos
 
 	QFile * Archivador::file = new QFile("./defecto.txt");
 
-	bool Archivador::abrir(QString ruta)  {
-		file->setFileName(ruta);
+	bool Archivador::abrir( QString ruta )  {
+	    file->setFileName( ruta );
 
-		if (!file->exists())  {
-			return false;
-		}
+	    if ( ! file->exists() )  {
+	        return false;
+	    }
 
-		return file->open(QIODevice::Append | QIODevice::Text);
+	    return file->open( QIODevice::Append | QIODevice::Text );
 	}
 
-	bool Archivador::almacenar(QString texto)  {
-		if (!file->isOpen())
-			return false;
+	bool Archivador::almacenar( QString texto )  {
+	    if ( ! file->isOpen() )
+	        return false;
 
-		QTextStream salida(file);
-		salida << texto;
+	    QTextStream salida( file );
+	    salida << texto;
 
-		return true;
+	    return true;
 	}
 
 
