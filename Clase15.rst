@@ -369,90 +369,12 @@ Ejercicio 23:
 
 
 
-Uso de atributos estáticos
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Ejemplos programados en clase**
 
-.. code-block:: c++
+- `ManagerSingleton-v1.zip <https://github.com/cosimani/Curso-PGE-2019/blob/master/sources/clase15/ManagerSingleton-v1.zip?raw=true>`_
 
-	// Archivo archivador.h
-	#ifndef ARCHIVADOR_H
-	#define ARCHIVADOR_H
+- `ManagerSingleton-v2.zip <https://github.com/cosimani/Curso-PGE-2019/blob/master/sources/clase15/ManagerSingleton-v2.zip?raw=true>`_
 
-	#include <QFile>
-	#include <QTextStream>
+- `ManagerSingleton-v3.zip <https://github.com/cosimani/Curso-PGE-2019/blob/master/sources/clase15/ManagerSingleton-v3.zip?raw=true>`_
 
-	class Archivador  {
-	private:
-	    static QFile *file;
-
-	public:
-	    static bool abrir( QString ruta );
-	    static bool almacenar( QString texto );
-	};
-	
-	#endif // ARCHIVADOR_H
-
-	
-.. code-block:: c++
-
-	// Archivo archivador.cpp
-	#include "archivador.h"
-
-	QFile * Archivador::file = new QFile("./defecto.txt");
-
-	bool Archivador::abrir( QString ruta )  {
-	    file->setFileName( ruta );
-
-	    if ( ! file->exists() )  {
-	        return false;
-	    }
-
-	    return file->open( QIODevice::Append | QIODevice::Text );
-	}
-
-	bool Archivador::almacenar( QString texto )  {
-	    if ( ! file->isOpen() )
-	        return false;
-
-	    QTextStream salida( file );
-	    salida << texto;
-
-	    return true;
-	}
-
-
-Ejercicio 24:
-============
-
-.. figure:: images/clase13/logger.png
-
-
-
-typeid
-======
-
-.. figure:: images/clase09/typeid.png
-
-**Clase type_info**
-
-- Dispone de un método para preguntar si es puntero y otro método para saber si es puntero a función:
-		    
-.. code-block::
-			
-	virtual bool __is_pointer_p() const;
-   
-	virtual bool __is_function_p() const;
-
-
-.. figure:: images/clase09/type_info.png
-
-Ejercicio 25:
-============
-
-.. figure:: images/clase09/ejercicio1.png
-
-Ejercicio 26:
-============
-
-.. figure:: images/clase09/ejercicio2.png
-
+- `ManagerSingleton-v4.zip <https://github.com/cosimani/Curso-PGE-2019/blob/master/sources/clase15/ManagerSingleton-v4.zip?raw=true>`_
