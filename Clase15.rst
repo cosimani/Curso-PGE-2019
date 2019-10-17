@@ -428,7 +428,8 @@ Ejercicio 24:
 
 
 
-**typeid**
+typeid
+======
 
 .. figure:: images/clase09/typeid.png
 
