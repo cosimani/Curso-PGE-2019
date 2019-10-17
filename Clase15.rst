@@ -2,9 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 15 - PGE 2018
+Clase 15 - PGE 2019
 ===================
-(Fecha: 4 de octubre)
+(Fecha: 17 de octubre)
 
 
 Ejemplo del Login independiente
