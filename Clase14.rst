@@ -146,8 +146,60 @@ Uso de singleton
 .. figure:: images/clase13/singleton.png
 
 
+**Ejemplo de AdminDB como singleton**
+
+.. code-block:: c++
+
+	#ifndef ADMINDB_H
+	#define ADMINDB_H
+
+	class AdminDB  {
+
+	private:
+	    static AdminDB * instancia;
+	    AdminDB();
+
+	public:
+	    static AdminDB * getInstancia();
+
+	    void conectar();
+	};
+
+	#endif // ADMINDB_H
 
 
+.. code-block:: c++
+
+	#include "admindb.h"
+	#include <QDebug>
+
+	AdminDB * AdminDB::instancia = nullptr;
+
+	AdminDB::AdminDB()  {
+	}
+
+	AdminDB * AdminDB::getInstancia()  {
+	    if( instancia == nullptr )  {
+	        instancia = new AdminDB;
+	    }
+	    return instancia;
+	}
+
+	void AdminDB::conectar()  {
+	    qDebug() << "La base se encuentra conectada...";
+	}
+
+
+.. code-block:: c++
+
+	#include "admindb.h"
+
+	int main( int, char ** )  {
+
+	    AdminDB::getInstancia()->conectar();
+
+	    return 0;
+	}
 
 
 
