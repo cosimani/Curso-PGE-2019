@@ -8,34 +8,6 @@ Clase 18 - PGE 2018
 
 
 
-**typeid**
-
-.. figure:: images/clase09/typeid.png
-
-**Clase type_info**
-
-- Dispone de un método para preguntar si es puntero y otro método para saber si es puntero a función:
-		    
-.. code-block::
-			
-	virtual bool __is_pointer_p() const;
-   
-	virtual bool __is_function_p() const;
-
-
-.. figure:: images/clase09/type_info.png
-
-Ejercicio 27:
-============
-
-.. figure:: images/clase09/ejercicio1.png
-
-Ejercicio 28:
-============
-
-.. figure:: images/clase09/ejercicio2.png
-
-
 Tratamiento de excepciones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
