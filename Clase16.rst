@@ -17,3 +17,5 @@ Primer parcial - Entrega de avances del proyecto
 - Métodos estáticos
 - Programación genérica
 - Sobrecarga de operadores
+- Método para dimensionar widgets y adaptar resolución de pantalla
+- Dedicar mucho tiempo al diseño de la interfaz gráfica
