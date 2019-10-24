@@ -411,7 +411,7 @@ donde:
 - `Descargar el código fuente <https://github.com/cosimani/Curso-PGE-2017/blob/master/sources/clase14/EjemploTexturas.zip?raw=true>`_
 
 
-Ejercicio 25:
+Ejercicio 27:
 ============
 
 - Caminando en la habitación.
@@ -419,7 +419,7 @@ Ejercicio 25:
 - Con las teclas UP y DOWN realizar el efecto como si estuviéramos desplazándonos sobre la habitación hacia delante y atrás.
 - Colocar una pared al fondo de la habitación con textura de ladrillos.
 
-Ejercicio 26:
+Ejercicio 28:
 ============
 
 - En un nuevo proyecto promocionar en QtDesigner dos Escenas.
