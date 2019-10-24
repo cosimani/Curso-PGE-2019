@@ -2,16 +2,28 @@
 
 .. _rcs_subversion:
 
-Clase 17 - PGE 2018
+Clase 17 - PGE 2019
 ===================
-(Fecha: 11 de octubre)
+(Fecha: 24 de octubre)
 
 
-Recordatorio sobre la entrega de ejercicios
-===========================================
+MiniExamen de preguntas múltiples
+=================================
 
-- Se deberán entregar todos aquellos ejercicios que están enumerados
-- Cada alumno entregará sólo algunos ejercicios ordenados según este `Documento en Drive <https://docs.google.com/spreadsheets/d/1zVNfyvZA01IA9ErGCsfEZLRegmMzTmTWH6xRbXhRpP0/edit?usp=sharing>`_
+:Tarea para Clase 18:
+	Completar y estudiar exhaustivamente operador de asignación y constructor copia
+
+	Estudiar eventFilter y LineaDeTexto mejorado
+
+	Ver `Tutorial Qt Creator - qDebug Operador de inserción <https://www.youtube.com/watch?v=IBMU3FyisKY>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
+
+	Ver `Tutorial Qt Creator - Timer <https://www.youtube.com/watch?v=_Ps7aHDoAr4>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
+
+	Ver `Tutorial Qt Creator - QTimer <https://www.youtube.com/watch?v=c6JZECBL54Q>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
+
+	Ver `Tutorial Qt Creator - Archivo de recursos <https://www.youtube.com/watch?v=u8xKE0zHLsE>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
+
+	Se tomarán preguntas en Opcionables y un MiniExamen para desarrollar en computadora
 
 
 
