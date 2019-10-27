@@ -2,16 +2,16 @@
 
 .. _rcs_subversion:
 
-Clase 18 - PGE 2018
+Clase 18 - PGE 2019
 ===================
-(Fecha: 18 de octubre)
+(Fecha: 29 de octubre)
 
 
 Recordatorio sobre la entrega de ejercicios
 ===========================================
 
-- Se deberán entregar todos aquellos ejercicios que están enumerados
-- Cada alumno entregará sólo algunos ejercicios ordenados según este `Documento en Drive <https://docs.google.com/spreadsheets/d/1zVNfyvZA01IA9ErGCsfEZLRegmMzTmTWH6xRbXhRpP0/edit?usp=sharing>`_
+- Se deberán entregar los ejercicios que están enumerados
+- Cada alumno entregará sólo algunos ejercicios asignados según este `Documento en Drive <https://docs.google.com/spreadsheets/d/1zVNfyvZA01IA9ErGCsfEZLRegmMzTmTWH6xRbXhRpP0/edit?usp=sharing>`_
 
 
 Tratamiento de excepciones

@@ -10,7 +10,7 @@ Clase 17 - PGE 2019
 MiniExamen de preguntas múltiples
 =================================
 
-:Tarea para Clase 18:
+:Tarea para Clase 19:
 	Completar y estudiar exhaustivamente operador de asignación y constructor copia
 
 	Estudiar eventFilter y LineaDeTexto mejorado
@@ -404,7 +404,9 @@ donde:
 
 	    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT );  // GL_CLAMP -    
 	    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT );  // GL_REPEAT - Permite repetir
-	    glTexImage2D( GL_TEXTURE_2D, 0, 3, im.width(), im.height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, textura );
+	    glTexImage2D( GL_TEXTURE_2D, 
+	                  0, 3, im.width(), im.height(), 0, 
+	                  GL_RGBA, GL_UNSIGNED_BYTE, textura );
 	}
 
 
