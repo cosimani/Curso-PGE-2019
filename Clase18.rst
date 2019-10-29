@@ -12,6 +12,7 @@ Recordatorio sobre la entrega de ejercicios
 
 - Se deberán entregar los ejercicios que están enumerados
 - Cada alumno entregará sólo algunos ejercicios asignados según este `Documento en Drive <https://docs.google.com/spreadsheets/d/1zVNfyvZA01IA9ErGCsfEZLRegmMzTmTWH6xRbXhRpP0/edit?usp=sharing>`_
+- Después del segundo Mini Examen ya se define el ranking y los ejercicios que cada uno debe entregar.
 
 
 Tratamiento de excepciones
