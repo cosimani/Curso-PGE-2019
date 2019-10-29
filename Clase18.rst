@@ -41,7 +41,7 @@ Tratamiento de excepciones
 	private:
 	    QString mensaje;
 	public:
-	    ExcRango(QString mensaje, int i) : mensaje(mensaje)  {   }
+	    ExcRango( QString mensaje, int i ) : mensaje( mensaje )  {   }
 	    QString getMensaje()  {  return mensaje;  }
 	};
 
@@ -51,10 +51,10 @@ Tratamiento de excepciones
 	    QString mensaje;
 
 	public:
-	    ExcNoArchivo(QString archivo) : archivo(archivo)  {
-	        QFile file(archivo);
-	        if (!file.exists())
-	            mensaje.operator=("El archivo " + archivo + " no existe.");
+	    ExcNoArchivo( QString archivo ) : archivo( archivo )  {
+	        QFile file( archivo );
+	        if ( ! file.exists() )
+	            mensaje.operator=( "El archivo " + archivo + " no existe." );
 	    }
 
 	    QString getMensaje()  {  return mensaje;  }
@@ -77,29 +77,29 @@ Tratamiento de excepciones
 	    static QFile *file;
 
 	public:
-	    static bool abrir(QString ruta)  {
-	        file->setFileName(ruta);
+	    static bool abrir( QString ruta )  {
+	        file->setFileName( ruta );
 
-	        if (!file->exists())  {
-	            throw ExcNoArchivo(ruta);
+	        if ( ! file->exists() )  {
+	            throw ExcNoArchivo( ruta );
 	            return false;
 	        }
 
-	        return file->open(QIODevice::Append | QIODevice::Text);
+	        return file->open( QIODevice::Append | QIODevice::Text );
 	    } 
 
-	    static bool almacenar(QString texto)  {
-	        if (!file->isOpen())
+	    static bool almacenar( QString texto )  {
+	        if ( ! file->isOpen() )
 	        return false;
 
-	        QTextStream salida(file);
+	        QTextStream salida( file );
 	        salida << texto;
  
 	        return true;
 	    }
 	};
 
-	QFile * Archivador::file = new QFile("./defecto.txt");
+	QFile * Archivador::file = new QFile( "./defecto.txt" );
 
 	#endif // ARCHIVADOR_H
 
@@ -109,14 +109,14 @@ Tratamiento de excepciones
 	#include "archivador.h"
 	#include <QDebug>
 
-	int main(int argc, char** argv)  {
-	    QApplication a(argc, argv);
+	int main( int argc, char ** argv )  {
+	    QApplication a( argc, argv );
 
 	    try  {
-	        Archivador::abrir("./defecto.txt");
-	        Archivador::almacenar("11111111");
+	        Archivador::abrir( "./defecto.txt" );
+	        Archivador::almacenar( "11111111" );
 	    }
-	    catch(ExcNoArchivo e)  {
+	    catch( ExcNoArchivo e )  {
 	        qDebug() << e.getMensaje();
 	    }
 
@@ -130,28 +130,28 @@ Ejercicio 29:
 
 .. code-block:: c++
 
-	template <class T> class Listado  {
+	template < class T > class Listado  {
 	private:
 	    int cantidad;
 	    int libre;
-	    T *v;
+	    T * v;
 
 	public:
-	    Listado(int n=10) : cantidad(n), libre(0), v(new T[n])  {  }
-	    bool add(T nuevo);
+	    Listado( int n = 10 ) : cantidad( n ), libre( 0 ), v( new T[ n ] )  {  }
+	    bool add( T nuevo );
 
-	    T get(int i)  {
-	        if (i>=libre)
-	            throw ExcRango("Listado fuera de rango", i);
-	        return v[i];
+	    T get( int i )  {
+	        if ( i >= libre )
+	            throw ExcRango( "Listado fuera de rango", i );
+	        return v[ i ];
 	    }
 
 	    int length()  {  return libre;  }
 	};
 
-	template <class T> bool Listado<T>::add(T nuevo)  {
-	    if (libre < cantidad)  {
-	        v[libre] = nuevo;
+	template < class T > bool Listado< T >::add( T nuevo )  {
+	    if ( libre < cantidad )  {
+	        v[ libre ] = nuevo;
 	        libre++;
 	        return true;
 	    }
@@ -219,11 +219,11 @@ Ejercicio 29:
 	Q_OBJECT
 
 	public:
-	    explicit Principal( QWidget *parent = 0 );
+	    explicit Principal( QWidget * parent = nullptr );
 	    ~Principal();
 
 	private:
-	    Ui::Principal *ui;
+	    Ui::Principal * ui;
 	    QVector< Persona * > vector;
 
 	private slots:
