@@ -116,9 +116,6 @@ Ejercicio 26:
 .. figure:: images/clase09/ejercicio2.png
 
 
-
-
-
 Texturas
 ========
 

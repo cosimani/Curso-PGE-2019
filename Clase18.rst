@@ -159,138 +159,40 @@ Ejercicio 29:
 	}
 
 
+Ejercicio 30:
+============
 
-
-
-
-**Resolución. Sin typeid.**
-
-.. code-block:: c++
-
-	#ifndef PERSONA_H
-	#define PERSONA_H
-
-	#include <QString>
-
-	class Persona  {
-	public:
-	    Persona() : dni( 0 )  {  }
-	    virtual ~Persona()  {  }
-
-	private:
-	    int dni;
-	};
-
-	class Cliente : public Persona  {
-	public:
-	    Cliente() : cuenta( 0 ), tipo( "Corriente" )  {  }
-
-	private:
-	    int cuenta;
-	    QString tipo;
-	};
-
-	class Empleado : public Persona  {
-	public:
-	    Empleado() : sueldo( 0 )  {  }
-
-	private:
-	    int sueldo;
-	};
-
-	#endif // PERSONA_H
+- Utilizar la siguiente clase Vector (sin modificarla) y, según lo visto en clase, mostrar la manera de averiguar la cantidad de elementos que tiene utilizando excepciones.
 
 
 .. code-block:: c++
 
-	#ifndef PRINCIPAL_H
-	#define PRINCIPAL_H
+	// Este es el archivo vector.h
 
-	#include <QWidget>
+	#ifndef VECTOR_H_
+	#define VECTOR_H_
+
 	#include <QVector>
-	#include "persona.h"
+	#include <stdexcept>
+	#include <string>
 
-	namespace Ui {
-	    class Principal;
-	}
-
-	class Principal : public QWidget
-	{
-	Q_OBJECT
-
+	template< class T > class Vector > private QVector< T >  {
 	public:
-	    explicit Principal( QWidget * parent = nullptr );
-	    ~Principal();
+	    const T get( int i )  {
+	        if ( i >= this->size() || i < 0 )  {
+	            std::string mensaje = "Le pagaste fuera";
+	            std::out_of_range e( mensaje );
+	            throw e;
+	        }
 
-	private:
-	    Ui::Principal * ui;
-	    QVector< Persona * > vector;
+	        return this->at( i );	        
+	    }
 
-	private slots:
-	    void slot_agregar();
+	    void add( T nuevo )  {
+	        this->push_back( nuevo );
+	    }
 	};
 
-	#endif // PRINCIPAL_H
 
 
-.. code-block:: c++
-
-	#include "principal.h"
-	#include "ui_principal.h"
-	#include <QDebug>
-
-	Principal::Principal(QWidget *parent) : QWidget( parent ),
-	                                        ui( new Ui::Principal )  {
-	    ui->setupUi( this );
-
-	    connect( ui->pbCliente, SIGNAL( pressed() ), this, SLOT( slot_agregar() ) );
-	    connect( ui->pbEmpleado, SIGNAL( pressed() ), this, SLOT( slot_agregar() ) );
-	}
-
-	Principal::~Principal()  {
-	    delete ui;
-	}
-
-	void Principal::slot_agregar()  {
-
-	    if ( this->sender() == ui->pbCliente )  {
-	        if (vector.isEmpty())  {
-	            vector.push_back( new Cliente );
-	            qDebug() << "Se agrega como primer elemento un Cliente";
-	        }
-	        else  {
-	            Cliente * pd = dynamic_cast<Cliente*>( vector.at( 0 ) );
-
-	            if ( pd != 0 )  {
-	                vector.push_back( new Cliente );
-	                qDebug() << "Se agrega otro Cliente. El Cliente numero" << vector.size();
-	            }
-	            else  {
-	                qDebug() << "Este QVector no contiene Clientes. No se agrega nada.";
-	            }
-	        }
-	    }
-	    else  {
-	        if (vector.isEmpty())  {
-	            vector.push_back( new Empleado );
-	            qDebug() << "Se agrega como primer elemento un Empleado";
-	        }
-	        else  {
-	            Empleado * pd = dynamic_cast<Empleado*>( vector.at( 0 ) );
-
-	            if ( pd != 0 )  {
-	                vector.push_back( new Empleado );
-	                qDebug() << "Se agrega otro Cliente. El Empleado numero" << vector.size();
-	            }
-	            else  {
-	                qDebug() << "Este QVector no contiene Empleados. No se agrega nada.";
-	            }
-	        }
-	    }
-	}
-
-
-**Ejercicio**
-
-- Hacer lo mismo pero usando typeid.
 
