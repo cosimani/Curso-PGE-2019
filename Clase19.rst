@@ -145,7 +145,8 @@ Ejercicio 31:
 
 
 
-**Clase QThread**
+Clase QThread
+============
 
 - Permite crear hilos de ejecución para realizar varias tareas a la vez. 
 - Proporciona el método start() para iniciar el hilo.
