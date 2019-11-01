@@ -176,7 +176,7 @@ Ejercicio 30:
 	#include <stdexcept>
 	#include <string>
 
-	template< class T > class Vector > private QVector< T >  {
+	template< class T > class Vector : private QVector< T >  {
 	public:
 	    const T get( int i )  {
 	        if ( i >= this->size() || i < 0 )  {
@@ -192,6 +192,8 @@ Ejercicio 30:
 	        this->push_back( nuevo );
 	    }
 	};
+
+	#endif
 
 
 
