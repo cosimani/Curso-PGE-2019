@@ -15,7 +15,7 @@ Clase QThread
 - Emite señales para indicar el inicio y fin de la ejecución del hilo.
 - Se necesita reimplementar el método run() en una clase derivada de QThread.
 - El código dentro de run() se ejecuta en un hilo y finaliza cuando retorna.
-- La programación miltihilo es un paradigma útil para realizar tareas que consumen tiempo sin congelar la interfaz de usuario.
+- La programación multihilo es útil para realizar tareas que consumen tiempo sin congelar la interfaz de usuario.
 
 .. code-block:: c++
 
