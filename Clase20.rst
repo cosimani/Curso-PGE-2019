@@ -184,7 +184,7 @@ Ejercicio 34:
 	
 .. code-block:: c++	
 		
-	void ordenar( Ordenador::*puntero_funcion )( int * v, int n ) )
+	void ordenar( void ( Ordenador::*puntero_funcion )( int * v, int n ) );
 	// Este método ordenará los elementos
 
 
