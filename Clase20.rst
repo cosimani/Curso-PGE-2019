@@ -2,12 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 20 - PGE 2018
+Clase 20 - PGE 2019
 ===================
-(Fecha: 1 de noviembre)
-
-
-
+(Fecha: 5 de noviembre)
 
 
 Clase QThread
@@ -61,12 +58,112 @@ Ejercicio 33:
 
 
 
+Función callback
+^^^^^^^^^^^^^^^^
+
+- Función que se llama a través de un puntero a función.
+- Se puede utilizar como parámetro de otra función.
+- Cuando la función que recibe este puntero a función hace uso de este, se dice que hace una retrollamada (callback).
+- Si en la clase Listado deseamos que se ordenen los datos pero no queremos incluir (en Listado) la lógica de un método de ordenamiento, podemos pedir al programador que nos pase como parámetro un puntero a su propia función de ordenamiento.
+- Se podría utilizar para una simple notificación o comunicación de dos vías (similar a las signals y slots).
+- Cuando un diseñador de bibliotecas quiere notificar al programador sobre algún suceso, puede solicitar un puntero a función.
+
+**Declaraciones de punteros a funciones:**
+
+.. code-block:: c++
+
+	void ( * fptr )();  
+	// puntero a una función sin parámetros que devuelve void.
+
+	void ( * fptr )( int );	
+	// puntero a función que recibe int y devuelve void.
+
+	int ( * fptr )( int, char );		
+	// acepta int y char y devuelve un int.
+
+	int * ( * fptr )();	
+	// puntero a función, sin argumentos y devuelve puntero a int
 
 
-MiniExamen de preguntas múltiples
-=================================
+**Declaraciones de punteros a funciones (o métodos) de clases:**
 
-:Tarea para Clase 21 (5 de noviembre):
+.. code-block:: c++
+
+	void ( C::*puntero )( int );  // puntero a método de la clase C
+
+	int ( C::*puntero )();
+
+- Antes de usar un puntero a función es necesario definirlo (asignarle un valor).
+- El valor es la dirección de memoria donde inicia una función concreta.
+
+.. code-block:: c++
+
+	char funcion( int );  // Declara una función concreta
+
+	char ( * puntero_funcion )( int );  // Declara un puntero a función
+
+	puntero_funcion = &funcion;  // Asigna al puntero la dirección de memoria de funcion(int)
+
+
+**Luego de declarado y definido, podemos usarlo de dos formas:**
+
+- Acceder (invocar), a la función que representa
+- Usarlo como parámetro de otra función.
+
+**Invocación**
+
+.. code-block:: c++
+
+	char funcion( int );  // Declara función concreta. Suponemos que está definida en otro lugar.
+
+	char ( * puntero_funcion )( int );  // Declaramos puntero a función
+
+	puntero_funcion = &funcion;  // Asigna la dirección de memoria
+
+	int i = 10;
+	char c;
+
+	c = ( * puntero_funcion )( i );
+
+**Ejemplo**
+
+.. code-block:: c++
+
+	#include <iostream>
+
+	void funcion() {  std::cout << "Una funcion cualquiera" << std::endl; }
+	void ( * puntero_funcion )() = &funcion; 
+
+	int main ()  {      
+	    funcion();     
+	    ( * puntero_funcion )(); 
+	    puntero_funcion();   
+
+	    return 0;
+	}
+
+	// Salida:
+	// Una funcion cualquiera
+	// Una funcion cualquiera
+	// Una funcion cualquiera
+
+**Paso de funciones como argumento**
+
+.. code-block:: c++
+
+	void funcion( void ( * puntero_funcion )() ) {  
+	    // Código de este método
+
+	    ( * puntero_funcion )();  // Llama a la función apuntada
+	}
+
+
+
+
+MiniExamen de preguntas múltiples (que no se tomará este año 2019)
+==================================================================
+
+:Tarea para Clase 22 (12 de noviembre):
 	Ver `Tutorial Qt Creator - Librería DLL <https://www.youtube.com/watch?v=WSk8ojnCrrI>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
 
 	Ver `Tutorial Qt Creator - Librería estática <https://www.youtube.com/watch?v=nqS5WNZZnzU>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
@@ -79,13 +176,6 @@ MiniExamen de preguntas múltiples
 
 	Ver `Tutorial Qt Creator - Slot lambda <https://www.youtube.com/watch?v=XL6OTXEh6P8>`_ de `Videos tutoriales de Qt <https://www.youtube.com/playlist?list=PL54fdmMKYUJvn4dAvziRopztp47tBRNum>`_
 
-
-
-
-
-
-Segundo parcial
-===============
 
 
 
