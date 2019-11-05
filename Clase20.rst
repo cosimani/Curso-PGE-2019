@@ -168,10 +168,10 @@ Ejercicio 34:
 
 	class Ordenador  {
 	public:
-	    void burbuja(int * v, int n)  {  /* código */  }
-	    void insercion(int * v, int n)  {  /* código */  }
+	    void burbuja( int * v, int n )  {  /* código */  }
+	    void insercion( int * v, int n )  {  /* código */  }
 
-	    void seleccion(int * v, int n)  {  /* código */  }
+	    void seleccion( int * v, int n )  {  /* código */  }
 	};
 
 - Esta clase tendrá distintos métodos de ordenamiento.
@@ -184,9 +184,8 @@ Ejercicio 34:
 	
 .. code-block:: c++	
 		
-	void ordenar(Ordenador::*puntero_funcion)(int * v, int n))
+	void ordenar( Ordenador::*puntero_funcion )( int * v, int n ) )
 	// Este método ordenará los elementos
-
 
 
 
