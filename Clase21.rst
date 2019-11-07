@@ -216,7 +216,7 @@ Ejercicio 38:
 	    // O se puede apuntar al metodo sin declarar un puntero a funcion
 	    contador->conectar( this, &Ventana::slot_sinSerSlot );
 
-	    // Recordar lo que vimos en clase, donde analizamos que las siguientes dos lineas son equivalentes:
+	    // Recordar lo visto en clase, donde analizamos que las siguientes lineas son equivalentes:
 	    //    connect( sender, SIGNAL( valueChanged( QString, QString ) ), 
 	    //             receiver, SLOT( updateValue( QString ) ) );
 	    //
