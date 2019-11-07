@@ -2,9 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 21 - PGE 2018
+Clase 21 - PGE 2019
 ===================
-(Fecha: 5 de noviembre)
+(Fecha: 7 de noviembre)
 
 
 MiniExamen de preguntas múltiples (que no se tomará este año 2019)
@@ -29,23 +29,20 @@ MiniExamen de preguntas múltiples (que no se tomará este año 2019)
 
 
 
-
-
-
 **Array de punteros a función**
 
 - Los punteros a funciones se pueden agrupar en arreglos
 
 .. code-block:: c++	
 
-	int (* afptr[10])(int);    // array de 10 punteros a función
+	int ( * afptr[ 10 ] )( int );    // array de 10 punteros a función
 
 - Los 10 punteros apuntan a funciones con el mismo prototipo
 - Permiten muchas variantes para invocar funciones
 
 .. code-block:: c++	
 
-	int a = afptr[n](x);
+	int a = afptr[ n ]( x );
 	
 Ejercicio 35:
 ============
@@ -55,7 +52,7 @@ Ejercicio 35:
 	
 .. code-block:: c++	
 		
-	void ordenar(Ordenador::*puntero_funcion)(T * v, int n))
+	void ordenar( void ( Ordenador::*puntero_funcion )( T * v, int n ) )
 	// Este método ordenará los elementos
 	
 - Notar que ordenar podrá ordenar elementos de cualquier tipo, siempre y cuando los objetos a ordenar sean de una clase que tenga sobrecargado el operador >
@@ -70,17 +67,17 @@ Ejercicio 36:
 
 	class ListadoEnteros : public QVector<int>  {
 	public:
-	    void ordenar(void (*pFuncionOrdenamiento)(int *, int))  {
-	        (*pFuncionOrdenamiento)(this->data(), this->size());
+	    void ordenar( void ( * pFuncionOrdenamiento )( int *, int ) )  {
+	        ( *pFuncionOrdenamiento )( this->data(), this->size() );
 	    }
 	};
 
 .. code-block:: c++		
 	///// Desde main se puede utilizar así:
 
-    void (*ordenador)(int *, int) = &burbuja;
+    void ( * ordenador )( int *, int ) = &burbuja;
 
-    listado.ordenar(ordenador);
+    listado.ordenar( ordenador );
 
 Ejercicio 37:
 ============
@@ -89,10 +86,10 @@ Ejercicio 37:
 
 .. code-block:: c++	
 
-	template<class T> class ListadoGenerico : public QVector<T>  {
+	template< class T > class ListadoGenerico : public QVector< T >  {
 	public:
-	    void ordenar(void (*pFuncionOrdenamiento)(int *, int))  {
-	        (*pFuncionOrdenamiento)(this->data(), this->size());
+	    void ordenar( void ( * pFuncionOrdenamiento )( int *, int ) )  {
+	        ( * pFuncionOrdenamiento )( this->data(), this->size() );
 	    }
 	};
 
@@ -108,35 +105,173 @@ Ejercicio 38:
 
 	///// Desde main se puede utilizar así:
 
-    void (*ordenador[2])(int *, int);
-    ordenador[0] = &burbuja;
-    ordenador[1] = &insercion;
+    void ( * ordenador[ 2 ] )( int *, int );
+    ordenador[ 0 ] = &burbuja;
+    ordenador[ 1 ] = &insercion;
 
-    listado.ordenar(ordenador[1]);
+    listado.ordenar( ordenador[ 1 ] );
+
+**Ejemplo del uso de callback en el mecanismo de SIGNAL y SLOT de Qt**
+
+.. code-block:: c++
+
+	#ifndef CONTADOR_H
+	#define CONTADOR_H
+
+	#include "ventana.h"
+	#include <QDebug>
+	#include <QThread>
+
+	class Contador : public QThread  {
+
+	public:
+	    Contador() : contador( 0 ),
+	                 hastaCuanto( 0 ),
+	                 isRunning( false),
+	                 puntero( nullptr ),
+	                 ventana( nullptr )
+	    {
+
+	    }
+
+	void setInterval( unsigned int hastaCuanto )  {
+	    this->hastaCuanto = hastaCuanto;
+	}
+
+	void run()  {
+	    if ( ! puntero || ! hastaCuanto )
+	        return;
+
+	    isRunning = true;
+
+	    while( isRunning )  {
+	        while ( contador < hastaCuanto )
+	            contador-=-1;
+
+	        contador = 0;
+	        ( ventana->*puntero )();  // Esto es emitir la signal
+	    }
+	}
+
+	void conectar( Ventana * ventana, void ( Ventana::*puntero )() )  {
+	    this->puntero = puntero;
+	    this->ventana = ventana;
+	}
+
+	void stop()  {
+	    isRunning = false;
+	}
+
+	private:
+	    unsigned int contador;
+	    unsigned int hastaCuanto;
+	    bool isRunning;
+	    void ( Ventana::*puntero )();
+	    Ventana * ventana;
+	};
+
+	#endif // CONTADOR_H
+
+.. code-block:: c++
+
+	#ifndef VENTANA_H
+	#define VENTANA_H
+
+	#include <QWidget>
+
+	class Contador;
+
+	class Ventana : public QWidget  {
+	    Q_OBJECT
+
+	public:
+	    Ventana( QWidget * parent = nullptr );
+	    ~Ventana();
+
+	    void slot_sinSerSlot();
+
+	private:
+	    Contador * contador;
+	};
+
+	#endif // VENTANA_H
+
+.. code-block:: c++
+
+	#include "ventana.h"
+	#include "contador.h"
+	#include <QDebug>
+
+	Ventana::Ventana( QWidget * parent ) : QWidget( parent ),
+	                                       contador( new Contador )
+	{
+	    // Con setInterval se define hasta que numero debera contar 
+	    // para realizar la retrollamada (o devolucion de llamada)
+	    contador->setInterval( ( unsigned int )500000000 );
+
+	    // Para conectar se puede definir un puntero a funcion y apuntarlo al metodo
+	    //    void ( Ventana::*puntero )() = &Ventana::slot_sinSerSlot;
+	    //    contador->conectar( this, puntero );
+
+	    // O se puede apuntar al metodo sin declarar un puntero a funcion
+	    contador->conectar( this, &Ventana::slot_sinSerSlot );
+
+	    // Recordar lo que vimos en clase, donde analizamos que las siguientes dos lineas son equivalentes:
+	    //    connect( sender, SIGNAL( valueChanged( QString, QString ) ), receiver, SLOT( updateValue( QString ) ) );
+	    //    connect( sender, &Sender::valueChanged, receiver, &Receiver::updateValue );
+
+	    contador->start();
+	}
+
+	Ventana::~Ventana()  {
+	    contador->stop();
+	}
 
 
-**Otro ejemplo: Función callback**
+	void Ventana::slot_sinSerSlot()  {
+	    qDebug() << "timeout";
+
+	    // Tener en cuenta que Contador tiene un metodo stop para finalizar el contador
+	    //    contador->stop();
+	}
+
+.. code-block:: c++
+
+	#include "ventana.h"
+	#include <QApplication>
+
+	int main( int argc, char ** argv )  {
+	    QApplication a( argc, argv );
+
+	    Ventana w;
+	    w.show();
+
+	    return a.exec();
+	}
+
+
+**Otro ejemplo de callback**
 
 .. code-block:: c++
 
 	#ifndef BOTONES_H
 	#define BOTONES_H
 
-	class Boton{
+	class Boton  {
 	public:
 	    virtual void click()  {  }
 	};
 
-	template <class T> class BotonCallBack : public Boton  {
+	template < class T > class BotonCallBack : public Boton  {
 	private:
-	    T *destinatario;
-	    void (T::*callback)(void);
+	    T * destinatario;
+	    void ( T::*callback )( void );
 	public:
-	    BotonCallBack(T *otro, void (T::*puntero_funcion)(void))
+	    BotonCallBack( T *otro, void ( T::*puntero_funcion )( void ) )
 	        : destinatario(otro), callback(puntero_funcion)  {  }
 	
 	    void click()  {
-	        (destinatario->*callback)();
+	        ( destinatario->*callback )();
 	    }
 	};
 
@@ -164,14 +299,14 @@ Ejercicio 38:
 	#include "botones.h"
 	#include "reproductor.h"
 
-	int main(int argc, char** argv)  {
-	    QApplication a(argc, argv);
+	int main( int argc, char** argv )  {
+	    QApplication a( argc, argv );
 
 	    MP3Player mp3;
-	    BotonCallBack<MP3Player> *boton;
+	    BotonCallBack< MP3Player > * boton;
 
 	    //Conecta un MP3Player a un botón
-	    boton = new BotonCallBack<MP3Player>(&mp3, &MP3Player::play);
+	    boton = new BotonCallBack< MP3Player >( &mp3, &MP3Player::play );
 
 	    boton->click();
 
