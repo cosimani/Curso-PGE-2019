@@ -217,8 +217,11 @@ Ejercicio 38:
 	    contador->conectar( this, &Ventana::slot_sinSerSlot );
 
 	    // Recordar lo que vimos en clase, donde analizamos que las siguientes dos lineas son equivalentes:
-	    //    connect( sender, SIGNAL( valueChanged( QString, QString ) ), receiver, SLOT( updateValue( QString ) ) );
-	    //    connect( sender, &Sender::valueChanged, receiver, &Receiver::updateValue );
+	    //    connect( sender, SIGNAL( valueChanged( QString, QString ) ), 
+	    //             receiver, SLOT( updateValue( QString ) ) );
+	    //
+	    //    connect( sender, &Sender::valueChanged, 
+	    //             receiver, &Receiver::updateValue );
 
 	    contador->start();
 	}
