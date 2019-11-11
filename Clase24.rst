@@ -2,9 +2,23 @@
 
 .. _rcs_subversion:
 
-Clase 24 - PGE 2018
+Clase 24 - PGE 2019
 ===================
-(Fecha: 15 de noviembre)
+(Fecha: 19 de noviembre)
+
+Segundio parcial - Entrega de avances del proyecto
+================================================
+
+**Características recomendadas para los proyectos**
+
+- Base de datos en SQLite 
+- Singleton
+- Métodos estáticos
+- Programación genérica
+- Sobrecarga de operadores
+- Método para dimensionar widgets y adaptar resolución de pantalla
+- Dedicar mucho tiempo al diseño de la interfaz gráfica
+
 
 Revisión de ejercicios para tercer nota parcial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

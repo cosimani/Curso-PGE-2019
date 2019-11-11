@@ -2,9 +2,9 @@
 
 .. _rcs_subversion:
 
-Clase 23 - PGE 2018
+Clase 23 - PGE 2019
 ===================
-(Fecha: 12 de noviembre)
+(Fecha: 14 de noviembre)
 
 Revisión de proyectos
 ^^^^^^^^^^^^^^^^^^^^^

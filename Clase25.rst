@@ -2,11 +2,11 @@
 
 .. _rcs_subversion:
 
-Clase 25 - PGE 2018
+Clase 25 - PGE 2019
 ===================
-(Fecha: 22 de noviembre)
+(Fecha: 21 de noviembre)
 
-Recuperatorios
-^^^^^^^^^^^^^^
+Recuperatorios y Revisión de ejercicios para tercer nota parcial
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
