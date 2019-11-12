@@ -120,10 +120,10 @@ Cálculo de la tercer nota
 	                           Cuestionario 2
 	                           Mini Examen 1
 	                           Mini Examen 2
-	                           Ejercicios 1 2 y 3 
-	                           Ejercicios 4 5 y 6 
-	                           Ejercicios 7 8 y 9 
-	                           Ejercicios 10 11 y 12 
+	                           Promedio de ( Ejercicios 1 2 y 3 )
+	                           Promedio de ( Ejercicios 4 5 y 6 )
+	                           Promedio de ( Ejercicios 7 8 y 9 )
+	                           Promedio de ( Ejercicios 10 11 y 12 )
 	                         )
 
 
