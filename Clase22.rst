@@ -39,11 +39,11 @@ Ejercicio 39:
 		void cargarTexturas();
 		void cargarTexturaCamara();
 
-		unsigned char *texturaCielo;
-		unsigned char *texturaMuro;
+		unsigned char * texturaCielo;
+		unsigned char * texturaMuro;
 		GLuint idTextura[ 2 ];
 
-		unsigned char *texturaCamara;
+		unsigned char * texturaCamara;
 		GLuint idTexturaCamara[ 1 ];
 	};
 
@@ -52,17 +52,17 @@ Ejercicio 39:
 
 		QList<QCameraInfo> cameras = QCameraInfo::availableCameras();
 
-		for (int i=0 ; i<cameras.size() ; i++)  {
-			qDebug() << cameras.at(i).description();
+		for ( int i = 0 ; i < cameras.size() ; i++ )  {
+			qDebug() << cameras.at( i ).description();
 
-			if (cameras.at(i).description().contains( "Truevision", Qt::CaseInsensitive ) )  {
+			if ( cameras.at( i ).description().contains( "Truevision", Qt::CaseInsensitive ) )  {
 				camera = new QCamera( cameras.at( i ) );
 				camera->setViewfinder( capturador );
 				camera->start(); // to start the viewfinder
 			}
 		}
 
-		glGenTextures(1, idTexturaCamara);
+		glGenTextures( 1, idTexturaCamara );
 	}
 
 	void Visual::cargarTexturaCamara()  {
@@ -110,17 +110,22 @@ Ejercicio 42:
 - Con la barra espaciadora se deberá saltar dentro de la escena.
 
 
-
-
 Cálculo de la tercer nota
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: c++
 
 	Promedio entre los porcentajes obtenidos en:
-	    Nota final = ( Cuestionario 1 ( % ) + Cuestionario 2 ( % ) + Cuestionario 3 ( % ) + 
-	                   Cuestionario 4 ( % ) + Ejercicios 1 al 6 ( % ) + Ejercicios 7 al 12 ( % ) + 
-	                   Ejercicios 13 al 17 ( % ) + Ejercicios 18 al 22 ( % ) ) / 8
+	    Nota final = Promedio de (
+	                               Cuestionario 1
+	                               Cuestionario 2
+	                               Mini Examen 1
+	                               Mini Examen 2
+	                               Ejercicios 1 2 y 3 
+	                               Ejercicios 4 5 y 6 
+	                               Ejercicios 7 8 y 9 
+	                               Ejercicios 10 11 y 12 
+	                             )
 
 
 
