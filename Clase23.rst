@@ -6,7 +6,7 @@ Clase 23 - PGE 2019
 ===================
 (Fecha: 14 de noviembre)
 
-Revisión de proyectos
-^^^^^^^^^^^^^^^^^^^^^
+Revisión de proyectos y entrega de ejercicios
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
