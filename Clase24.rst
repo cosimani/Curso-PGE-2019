@@ -6,7 +6,7 @@ Clase 24 - PGE 2019
 ===================
 (Fecha: 19 de noviembre)
 
-Segundio parcial - Entrega de avances del proyecto
+Segundo parcial - Entrega de avances del proyecto
 ==================================================
 
 **Características obligatorias para los proyectos**
